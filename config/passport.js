@@ -14,15 +14,15 @@ passport.use(
   "local",
   new LocalStrategy(
     {
-      usernameField: "username",
+      usernameField: "email",
       passwordField: "password",
       session: false,
     },
-    async (username, password, done) => {
-      console.log(username + "username");
+    async (email, password, done) => {
+      console.log(email + " email");
 
-      user.findOne({ username: username }, function (err, user) {
-        if (!user) return done(null, false, { message: "Incorrrect username" });
+      user.findOne({ email: email }, function (err, user) {
+        if (!user) return done(null, false, { message: "Incorrect email" });
 
         bcrypt.compare(password, user.password, function (err, res) {
           if (err) return done(err);
