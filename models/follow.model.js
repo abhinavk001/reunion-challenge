@@ -11,4 +11,4 @@ var followSchema = new mongoose.Schema({
   },
 });
 
-mongoose.model("Follow", followSchema);
+module.exports = mongoose.model("Follow", followSchema);

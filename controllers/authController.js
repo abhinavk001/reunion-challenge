@@ -24,9 +24,8 @@ genToken = (user) => {
   );
 };
 
-router.post("/login", async function (req, res, next) {
+router.post("/authenticate", async function (req, res, next) {
   passport.authenticate("local", async (err, user, info) => {
-    console.log();
     if (err || !user) {
       return res.status(400).json({
         message: "Something is not right",

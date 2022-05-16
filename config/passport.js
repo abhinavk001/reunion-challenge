@@ -19,8 +19,6 @@ passport.use(
       session: false,
     },
     async (email, password, done) => {
-      console.log(email + " email");
-
       user.findOne({ email: email }, function (err, user) {
         if (!user) return done(null, false, { message: "Incorrect email" });
 
@@ -43,9 +41,8 @@ const opts = {
 
 passport.use(
   "jwt",
-  new JWTstrategy(opts, async (jwt_payload, done) => {
+  new JWTstrategy(opts, async (token, done) => {
     try {
-      console.log("dsdfs");
       return done(null, token.user);
     } catch (err) {
       done(err);

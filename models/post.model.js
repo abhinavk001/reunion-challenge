@@ -9,6 +9,10 @@ var postSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  postDescription: {
+    type: String,
+    required: true,
+  },
   postTime: {
     type: Date,
     required: true,
@@ -19,4 +23,4 @@ var postSchema = new mongoose.Schema({
   },
 });
 
-mongoose.model("Post", postSchema);
+module.exports = mongoose.model("Post", postSchema);
